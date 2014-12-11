@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>星级评分系统</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			ul {
+				list-style-type: none;
+				display: inline-block;
+			}
+			#star {
+				position: absolute;
+				width: 400px;
+				left: 50%;
+				margin-left: -200px;
+			}
+			#star-list li {
+				float: left;
+				width: 25px;
+				text-indent: 9999px;
+				background: url("img/star.png") no-repeat;
+			}
+			#star-list li.light-star {
+				background-position: 0px -28px;
+			}
+			p {
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			function returnEvent(e) {
+				var event = e||window.event;
+				return event;
+			}
+			function returnSrc(e) {
+				var eventSrc = e.target||e.srcElement;
+				return eventSrc;
+			}
+			//阻止冒泡
+			
+			window.onload = function() {
+				var constMsg = ["1星 失望","2星 不满","3星 一般","四星 满意","五星 惊喜"];
+				var listObj = document.getElementById("star-list");
+				var liObj = listObj.getElementsByTagName("li");
+				var spanObj = document.getElementsByTagName("span")[1];
+				var pObj = document.getElementsByTagName("p")[0];
+				var curr = 0;  //记录上次评分
+				listObj.onmouseover = function(e) {
+					var event = returnEvent(e);
+					var eventSrc = returnSrc(event);
+					if(eventSrc.tagName.toUpperCase() == "LI") {
+						eventSrc.className = "light-star";
+						var num = parseInt(eventSrc.innerHTML);
+						//将之前的星星也变成亮
+						for(var i = curr;i < num;i++) {
+							liObj[i].className = "light-star";
+						}
+					}
+					event.stopImmediatePropagation();
+				};
+				listObj.onclick = function(e) {
+					var event = returnEvent(e);
+					var eventSrc = returnSrc(event);
+					if(eventSrc.tagName.toUpperCase() == "LI") {
+						eventSrc.className = "light-star";
+						var num = parseInt(eventSrc.innerHTML);
+						//将之前的星星也变成亮
+						for(var i = curr;i < num;i++) {
+							liObj[i].className = "light-star";
+						}
+						curr = num;
+						spanObj.innerHTML = constMsg[curr - 1];
+					}
+					event.stopImmediatePropagation();
+				};
+				listObj.onmouseout = function(e) {
+					var event = returnEvent(e);
+					var eventSrc = returnSrc(event);
+					if(eventSrc.tagName.toUpperCase() == "LI") {
+						//将没有选中的星星都变暗
+						for(var i = curr;i < liObj.length;i++) {
+							liObj[i].className = "";
+						}
+					}
+					event.stopImmediatePropagation();
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="star">
+			<span>星级评分:</span>
+			<ul id="star-list">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<span>赶紧晒单评分喔^_^</span>
+			<p style="display: none">1星表示失望</p>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+

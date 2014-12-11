@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			button {
+				width: 40px;
+				height: 30px;
+				border: black;
+			}
+			#red {
+				backgound: red;
+			}
+			#green {
+				background: green;
+			}
+			#yellow {
+				background: yellow;
+			}
+		</style>
+		<link href="css/red.css" rel="stylesheet" type="text/css">
+		<script>
+			window.onload = function() {
+				var buttonGroup = document.getElementById("button-group");
+				var linkTag = document.getElementsByTagName("link")[0];
+				buttonGroup.onclick = function(e) {
+					var e = e||window.event;
+					var target = e.target||e.srcElement;
+					linkTag.href = "css/" + target.id + ".css";
+					alert(linkTag.href);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="button-group">
+			<button id="red"></button>
+			<button id="green"></button>
+			<button id="yellow"></button>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+

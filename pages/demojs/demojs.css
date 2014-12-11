@@ -1,0 +1,29 @@
+.side {
+    margin: auto;
+    width: 100px;
+    margin-top: 50px;
+}
+.container {
+    width: 960px;
+    margin: auto;
+    margin-top: 100px;
+}
+.demo_piece {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+}
+.demo_piece:hover {
+    background: #3AA8A3;
+    color: white;
+    font-size: 16px;
+}
+a:hover {
+    color: white;
+}
+a {
+    display: block;
+    line-height: 36px;
+    height: 36px;
+    color: #3DA1D9;
+}

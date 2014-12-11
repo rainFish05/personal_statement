@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<style>
+			body,ul,li {
+				padding: 0px;
+				margin: 0px;
+			}
+			ul li {
+				list-style: none;
+				font-size: 0px;
+			}
+			#gallery {
+				width: 664px;
+				height: 268px;
+				position: absolute;
+				left: 50%;
+				margin-left: -332px;
+				border: 2px solid black;
+			}
+			li img{
+				float: left;
+				opacity: 0.2;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; 
+				filter: alpha(opacity=20);				
+			}
+			.curr_state {
+				opacity: 1;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; 
+				filter: alpha(opacity=100);
+			}
+		</style>
+		<script>
+			window.onload = function() {   //低版本的ie是不支持伪类hover的（除了a:hover）
+				var obj = document.getElementById("gallery");
+				obj.onmouseover = function(e) {
+					var event = e||window.event;
+					var eventSrc = event.target||event.srcElement;
+					if(eventSrc.tagName.toUpperCase() == "IMG") {
+						eventSrc.className = "curr_state";
+					}
+				};
+				obj.onmouseout = function(e) {
+					var event = e||window.event;
+					var eventSrc = event.target||event.srcElement;
+					if(eventSrc.tagName.toUpperCase() == "IMG") {
+						eventSrc.className = "";
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<ul id="gallery">
+			<li><img src="img/1.jpg"/></li>
+			<li><img src="img/2.jpg"/></li>
+			<li><img src="img/3.jpg"/></li>
+			<li><img src="img/4.jpg"/></li>
+			<li><img src="img/5.jpg"/></li>
+			<li><img src="img/6.jpg"/></li>
+			<li><img src="img/7.jpg"/></li>
+			<li><img src="img/8.jpg"/></li>
+			<li><img src="img/9.jpg"/></li>
+			<li><img src="img/10.jpg"/></li>
+		</ul>
+	</body>
+</html>

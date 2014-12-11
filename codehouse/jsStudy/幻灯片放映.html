@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			ul {
+				list-style-type: none;
+				font-size: 0px;
+			}
+			body {
+				background: black;
+			}
+			#box {
+				position: relative;
+				width: 727px;
+				height: 333px;
+				margin: 0 auto;
+			}
+			#pic-list {
+				width: 719px;
+				height: 325px;
+				padding: 4px;
+				background: white;
+			}
+			#pic-list li{
+				position: absolute;
+				opacity: 0;
+				filter: alpha(opacity=0);
+				font-size: 12px;
+				
+			}
+			#pic-list li.current {
+				opacity: 1;
+				filter: alpha(opacity=100);
+			}
+			#num-list {
+				position: absolute;
+				right: 4px;
+				bottom: 4px;
+				color: white;
+			}
+			#num-list li {
+				height: 20px;
+				line-height: 20px;
+				width: 20px;
+				cursor:pointer;
+				background: rgb(250, 147, 147);
+				text-align: center;
+				display: inline-block;
+				*display: inline;
+				zoom: 1;
+				font-size: 15px;
+				margin-left: 5px;
+			}
+			#num-list li.current {
+				background: red;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var picUl = document.getElementById("pic-list");
+				var picLi = picUl.getElementsByTagName("li");
+				var numUl = document.getElementById("num-list");
+				var numLi = numUl.getElementsByTagName("li");
+				var timer = null;          //定时器
+				var currPic = 0;           //当前正在播放的图片，与数组同步
+				/*
+				 *实现自动播放功能
+				 */
+				function autoPlay() {
+					timer = setInterval(function() {
+						currPic == 4?currPic = 0:currPic++;
+						play(currPic);
+					},2000);
+				}
+				function play(e) {
+					for(var i = 0;i < picLi.length;i++) {
+						picLi[i].className = "";
+					}
+					picLi[e].className = "current";
+					for(var j = 0;j < numLi.length;j++) {
+						numLi[j].className = "";
+					}
+					numLi[e].className = "current";
+				}
+				autoPlay();
+				/*
+				 *鼠标移入手动播放的实现
+				 */
+				 for(var i = 0;i < numLi.length;i++) {
+					numLi[i].index = i;
+					
+					numLi[i].onmouseover = function() {
+						clearInterval(timer);
+						currPic = this.index;
+						play(currPic);
+					};
+					
+					numLi[i].onmouseout = function() {
+						autoPlay();
+					};
+				 }
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="pic-list">
+				<li class="current"><img src="img/pic_01.jpg"></li>
+				<li><img src="img/pic_02.jpg"></li>
+				<li><img src="img/pic_03.jpg"></li>
+				<li><img src="img/pic_04.jpg"></li>
+				<li><img src="img/pic_05.jpg"></li>
+			</ul>
+			<ul id="num-list">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+.index {
+    height: 550px;
+    background: url("../image/index_bg.jpg")repeat;
+    overflow: hidden;
+}
+.index_main {
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    background: rgba(102,102,102,0.5);
+    font-size: 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -375px;
+}
+.douban,.weibo,.zhihu {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.douban a,.weibo a,.zhihu a{
+    color: #fff;
+}
+.douban {
+    background: rgba(0,102,0,0.6);
+}
+.weibo {
+    background: rgba(204,51,51,0.6);
+}
+.zhihu {
+    background: rgba(0,102,255,0.6);
+}
+.bokeyuan,.github {
+    display: inline-block;
+    width: 350px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    margin-right: -50px;
+}
+.bokeyuan a,.github a {
+    color: #fff;
+}
+.bokeyuan {
+    background: rgba(51,0,204,0.5);
+}
+.github {
+    background: rgba(153,0,153,0.5);
+}

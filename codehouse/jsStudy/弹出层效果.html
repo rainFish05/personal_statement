@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			#layout {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background: #000;
+				opacity: 0.5;
+				-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)"; 
+				filter: alpha(opacity=20);	
+				display: none;
+			}
+			#box {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 400px;
+				height: 200px;
+				border: 2px solid yellow;
+				margin-left: -202px;
+				margin-top: -102px;
+				background: white;
+				border: 2px solid yellow;
+				display: none;
+			}
+			h2 {
+				text-align: right;
+				padding: 10px;
+				border-bottom: 1px solid red;
+				background: rgb(255, 204, 0);
+			}
+			#close {
+				background: white;
+				cursor: pointer;
+				padding: 0px 2px;
+				border: 1px solid rgb(255, 153, 0);
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var button = document.getElementsByTagName("button")[0];
+				var lay = document.getElementById("layout");
+				var box = document.getElementById("box");
+				var close = document.getElementById("close");
+				button.onclick = function() {
+					lay.style.display = "block";
+					box.style.display = "block";
+				};
+				close.onclick = function() {
+					lay.style.display = "none";
+					box.style.display = "none";
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="layout"></div>
+		<div id="box"><h2><span id="close">x</span></h2></div>
+		<button>µ¯³ö¿ò</button>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

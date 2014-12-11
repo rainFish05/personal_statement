@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>雨鱼-patent</title>
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="patent.css"/>
+    <script src="patent.js"></script>
+</head>
+<body>
+<div class="side">
+    <div class="rain_fish_image">
+        <a href="http://rainfish.sinaapp.com/">
+            <img src="img/draw.jpg" alt="头像" name="rainFish"/>
+        </a>
+    </div>
+</div>
+<div class="container">
+    <div id="box">
+        <ul id="pic-list">
+            <li class="current"><img src="img/patent_1.png" alt="页面截图"></li>
+            <li><img src="img/patent_2.png" alt="页面截图"></li>
+            <li><img src="img/patent_3.png" alt="页面截图"></li>
+            <li><img src="img/patent_4.png" alt="页面截图"></li>
+            <li><img src="img/patent_5.png" alt="页面截图"></li>
+            <li><img src="img/patent_6.png" alt="页面截图"></li>
+        </ul>
+        <ul id="num-list">
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <div class="introduction-project">
+        <h1>项目介绍</h1>
+        <p>项目名称：**************。整体是基于j2ee的项目开发。</p>
+    </div>
+    <div class="introduction-fe">
+        <h1>前端部分</h1>
+        <p>在2013-05~2014-06这一年的时间里，实现了三次大规模的前端重构。</p>
+        <p>第一次：刚接触前端，主要工作是承担纯粹的页面重构。重新设计页面并实现页面。
+            编码过程中，将页面的html代码语义化（之后还整理了一份博客
+            <a href="http://www.cnblogs.com/Iwillknow/p/3581063.html">http://www.cnblogs.com/Iwillknow/p/3581063.html</a>)、
+            剔除冗余的js代码、赘余的css、优化代码。承担的角色是静态页面实现者。我写好一个个静态页面，然后交给后端。
+            在这个阶段，后端真心和我没有半毛线的关系。我只需要写静态页面，静态页面里的数据都是自己编的（当然，编也要编数据库
+            里有的数据）。最揪心就是，后端和前端不能同步开发。前端出静态页面的效率会对后端开发有很大的影响。
+            这一阶段，我最关注是浏览器兼容性问题以及前端数据展示问题（大数据可视化）；
+        </p>
+        <p>第二次：handlerbars模板引擎的引入。前后端多了一项json数据格式的商定流程但是解决了前后端不能并行开发的问题。</p>
+        <p>第三次：seajs的引入。重构所有代码，js部分的重构占了很大比重，开始模块化编程，提高了整个页面的可扩展性和维护性。
+            页面最后附上的图片即为三次重构后的最终前端架构。</p>
+    </div>
+    <div id="architecture">
+        <img src="img/patent.png" alt="模块图"/>
+    </div>
+</div>
+</body>
+</html>

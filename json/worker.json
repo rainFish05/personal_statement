@@ -1,0 +1,44 @@
+{
+    "workers":[
+        {
+            "worker_name": "javascript练习题",
+            "worker_image": "image/work_1.jpg",
+            "worker_description": "javascript基础题练习，主要是为了掌握原生javascript的使用。",
+            "worker_date": "2014-03-04",
+            "worker_tags": "前端、原生javascript",
+            "worker_url": "http://rainfish.sinaapp.com/pages/demojs/demojs.html"
+        },
+        {
+        "worker_name": "专利可视化项目",
+        "worker_image": "image/work_2.jpg",
+        "worker_description": "基于数据挖掘的专利可视化项目",
+        "worker_date": "2013-04~2014-06",
+        "worker_tags": "jq、handlebars、seajs、foundation",
+        "worker_url": "http://rainfish.sinaapp.com/pages/patent/patent.html"
+        },
+        {
+        "worker_name": "css3-demo",
+        "worker_image": "image/work_3.jpg",
+        "worker_description": "css3学习，特效展示基于node、express ",
+        "worker_date": "2014-09~",
+        "worker_tags": "javascript,css3,html",
+        "worker_url": "https://github.com/Gyingguo/css3-demo"
+        },
+        {
+        "worker_name": "like zhihu",
+        "worker_image": "image/work_4.jpg",
+        "worker_description": "comment",
+        "worker_date": "2014-11",
+        "worker_tags": "angularJS",
+        "worker_url": ""
+        },
+        {
+        "worker_name": "waiting。。。。。。",
+        "worker_image": "image/yet.jpg",
+        "worker_description": "waiting。。。。。。",
+        "worker_date": "waiting。。。。。。",
+        "worker_tags": "waiting。。。。。。",
+        "worker_url": "#"
+        }
+    ]
+}

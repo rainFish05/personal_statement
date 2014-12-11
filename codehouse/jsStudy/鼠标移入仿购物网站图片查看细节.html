@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			ul {
+				list-style-type: none;
+			}
+			body {
+				background: black;
+			}
+			#gallery {
+				background: white;
+				width: 212px;
+				height: 264px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -106px;
+				margin-top: -132px;
+				border: 5px solid white;
+			}
+			li {
+				float: left;
+				margin: 0px 0px 0px 2px;
+			}
+			#gallery li.first {
+				position: relative;
+			}
+			#loading {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				background: url("img/loading.gif");
+				display: none;
+			}
+			</style>
+			<script>
+				window.onload = function() {      
+				//window.onload所带来的奇怪现象，eventSrc.src有时是undefine
+					var targetObj = document.getElementById("gallery");
+					var firstObj = document.getElementById("first");
+					var loadingFlag = document.getElementById("loading");
+					var count = 0;
+					targetObj.onmouseover = function(e) {
+						var event = e||window.event;
+						var eventSrc = event.target||event.srcElement;
+						if(typeof eventSrc.src != "undefined") {       //你知道这句话的重要性吗
+							//******
+							//console.log("eventSrc.src " + eventSrc.src);
+							//******
+							var imgSrc = null;
+							imgSrc = eventSrc.src;
+							//******
+							//console.log("imgSrc " + imgSrc);
+							//******
+							var newFirstImg = new Image();
+							newFirstImg.src = imgSrc.replace(/small/,"big");
+							loadingFlag.style.display = "block";
+							firstObj.children[0].src = newFirstImg.src;
+							//******
+							//console.log("newFirstImg.src " + newFirstImg.src);
+							//******
+							newFirstImg.complete?loadingFlag.style.display = "none":(firstObj.children[0].onload = function(){loadingFlag.style.display = "none"});
+						}
+					};
+				};
+			</script>
+	</head>
+	<body>
+		<ul id="gallery">
+			<li id="first"><img src="img/big_1.jpg"/><div id="loading"></div></li>
+			<li><img src="img/small_1.jpg"/></li>
+			<li><img src="img/small_2.jpg"/></li>
+			<li><img src="img/small_3.jpg"/></li>
+			<li><img src="img/small_4.jpg"/></li>
+			<li><img src="img/small_5.jpg"/></li>
+			<li><img src="img/small_6.jpg"/></li>
+			<li><img src="img/small_7.jpg"/></li>
+			<li><img src="img/small_8.jpg"/></li>
+			<li><img src="img/small_9.jpg"/></li>
+			<li><img src="img/small_10.jpg"/></li>
+			<li><img src="img/small_11.jpg"/></li>
+		</ul>
+	</body>
+</html>

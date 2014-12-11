@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style>
+			body,ul,li,div {
+				margin: 0px;
+				padding: 0px;
+			}
+			#example {
+				position: absolute;
+				left: 10%;
+				top: 10%;
+			}
+			#tab {
+				font-size: 0px;
+			}
+			#tab li{
+				font-size: 12px;
+				display: inline-block;
+				width: 80px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;     
+				border: 1px solid black;
+				margin-left: -1px;
+			}
+			#tab li#one {
+				_border-left: 2px solid black;
+			}
+			#tab li {
+				*display: inline;
+				zoom: 1;
+			}
+			#content {
+				width: 500px;
+				height: 200px;
+				border: 1px solid black;
+				_border-left: 2px solid black;
+				margin-left: -1px;
+				margin-top: -1px;
+			}
+			#content div {
+				display: none;
+			}
+			.currLi {
+				border-bottom-color: white!important;
+			}
+			.currDiv {
+				display: block!important;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var obj = document.getElementById("tab");
+				var objChild = obj.getElementsByTagName("li");
+				var contentObj = document.getElementById("content");
+				var contentChild = contentObj.getElementsByTagName("div");
+				obj.onclick = function(e) {
+					var event = e||window.event;
+					var eventSrc = event.target||event.srcElement;
+					if(eventSrc.tagName.toUpperCase() == "LI") {
+						var contentNum = clearClass(objChild);  //这个是为了清除
+						contentChild[contentNum].className = "";
+						eventSrc.className = "currLi";
+						var srcNum = clearClass(objChild);  //这次的调用是为了获得对应节点号
+						eventSrc.className = "currLi";
+						contentChild[srcNum].className = "currDiv";
+					}
+				};
+			};
+			function clearClass(temp) {
+				for(var i = 0;i < temp.length;i++) {
+					var x = temp[i].className;
+					if(x != "") {
+						temp[i].className = "";
+						return i;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="example">
+			<ul id="tab">
+				<li id="one" class="currLi">生活</li>
+				<li>工作</li>
+				<li>旅行</li>
+			</ul>
+			<div id="content">
+				<div class="currDiv">生活</div>
+				<div>工作</div>
+				<div>旅行</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

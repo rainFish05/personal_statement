@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<title>简易导航栏</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			ul {
+				list-style-type: none;
+				font-size: 0px;
+			}
+			a {
+				text-decoration: none;
+			}
+			.nav {
+				width: 460px;
+				height: 44px;
+				position: relative;
+				left: 50%;
+				margin-left: -230px;
+				top: 10px;
+				background: rgb(77, 150, 243);	
+			}
+			.nav li {
+				display: inline-block;
+				width: 115px;
+				line-height: 44px;
+				font-size: 20px;
+				color: white;
+				text-align: center;
+			}
+			.nav li a {
+				display: inline-block;
+				width: 115px;
+				height: 44px;
+			}
+			.nav li .subNav{
+				color: black;
+			}
+			.subNav {
+				position: absolute;
+				width: 120px;
+				top: 44px;
+				border: 1px solid black;
+				display: none;
+			}
+		</style>
+		<script>
+			function getClass(objClass,root) {
+				var reClass = new RegExp("(^| )" + objClass + "( |$)");
+				var arr = [];
+				var allTag = (root||document).getElementsByTagName("*");
+				for(var j = 0;j < allTag.length;j++) {
+					if(reClass.test(allTag[j].className)) {
+						arr.push(allTag[j]);
+					}
+				}
+				return arr;
+			}
+			window.onload = function() {
+				var divObj = document.getElementsByTagName("ul")[0];
+				var liList = divObj.getElementsByTagName("li");
+				var subNavAll = getClass("subNav");
+				var chooseNav = timer = null;
+				for(var i = 0;i < liList.length;i++) {
+					liList[i].onmouseover = function(e) {
+						var event = e||window.event;
+						var eventSrc = event.target||event.srcElement;
+						for(var i = 0;i < subNavAll.length;i++) {   //隐藏所有子菜单
+							subNavAll[i].style.display = "none";
+						}
+						var subNavTarget = getClass("subNav",this);
+						if(subNavTarget.length > 0) {
+							chooseNav = subNavTarget[0];
+							chooseNav.style.display = "block";
+							//阻止事件冒泡
+							chooseNav.onmouseover = function (event) {      //你知道这里为什么要进行阻止事件冒泡吗?
+								(event || window.event).cancelBubble = true;
+								clearTimeout(timer);        //这里的重要性
+							}
+						}
+					};
+					
+					liList[i].onmouseout = function() {
+						if(chooseNav != null) {
+							timer = setTimeout(function(){chooseNav.style.display = "none";},300);    //very important!!!!!
+						}
+					}
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<div class="nav">
+			<ul>
+				<li><a>首页</a></li>
+				<li>
+					<a>热门</a>
+					<div class="subNav">
+						<span>
+							<a>热门话题</a>
+							<a>笑话</a>
+							<a>名人堂</a>
+							<a>微相册</a>
+							<a>谈公益</a>
+						</span>
+					</div>
+				</li>
+				<li>
+					<a>应用</a>
+					<div class="subNav">
+						<span>
+							<a>猜猜看</a>
+							<a>微话题</a>
+							<a>和风细雨</a>
+						<span>
+					</div>
+				</li>
+				<li><a>游戏</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
